@@ -1,0 +1,3090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPro Electrical | Professional Electrical Solutions</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES AND VARIABLES
+           ============================================ */
+        :root {
+            /* Professional Color Palette - Electrical Theme */
+            --primary-blue: #0056b3;       /* Deep professional blue */
+            --primary-dark: #003d82;       /* Darker blue for contrast */
+            --accent-gold: #FFB81C;        /* Professional gold accent */
+            --accent-orange: #FF6B35;      /* Safety orange */
+            --neutral-light: #F8F9FA;      /* Light background */
+            --neutral-gray: #6C757D;       /* Medium gray */
+            --neutral-dark: #212529;       /* Dark text */
+            --electric-blue: #00B4D8;      /* Electric blue for highlights */
+            --success-green: #28A745;      /* Success/positive */
+            --warning-red: #DC3545;        /* Warning/error */
+            
+            /* Professional Fonts */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+            --transition-slow: 500ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--neutral-dark);
+            background-color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container Utility */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Section Spacing */
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* Button Base Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--neutral-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: var(--neutral-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Animation Classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 86, 179, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 86, 179, 0);
+            }
+        }
+
+        @keyframes electricSpark {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .electric-spark {
+            animation: electricSpark 0.5s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-accent {
+            color: var(--accent-gold);
+        }
+
+        .highlight {
+            color: var(--electric-blue);
+            font-weight: 600;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            border-radius: var(--radius-sm);
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+           HEADER SECTION STYLES
+           ============================================ */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all var(--transition-normal);
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+            padding: 0.5rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '⚡';
+            font-size: 1.8rem;
+            color: white;
+            animation: electricSpark 2s infinite;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.75rem;
+            color: var(--neutral-gray);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--neutral-dark);
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            transition: width var(--transition-normal);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .emergency-badge {
+            background: linear-gradient(135deg, var(--warning-red), #ff4757);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .emergency-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .emergency-badge i {
+            animation: pulse 1.5s infinite;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* ============================================
+           HERO SECTION STYLES
+           ============================================ */
+        .hero-section {
+            background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.9)),
+                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background-color: rgba(0, 180, 216, 0.2);
+            border-radius: 2px;
+        }
+
+        .circuit-line.horizontal {
+            width: 100px;
+            height: 2px;
+        }
+
+        .circuit-line.vertical {
+            width: 2px;
+            height: 100px;
+        }
+
+        .electric-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--electric-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--electric-blue);
+            animation: electricSpark 2s infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content .highlight {
+            color: var(--accent-gold);
+            background: linear-gradient(135deg, var(--accent-gold), #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content .highlight::after {
+            content: '⚡';
+            position: absolute;
+            right: -35px;
+            top: -5px;
+            font-size: 2rem;
+            animation: electricSpark 1.5s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-cta .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .certification-badges {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge i {
+            color: var(--accent-gold);
+        }
+
+        .animated-electricity {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+            width: 300px;
+            height: 300px;
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .electric-animation {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+
+        .electric-animation::before,
+        .electric-animation::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 180, 216, 0.5);
+        }
+
+        .electric-animation::before {
+            width: 80%;
+            height: 80%;
+            animation: electricSpark 2s infinite 0.5s;
+        }
+
+        .electric-animation::after {
+            width: 60%;
+            height: 60%;
+            animation: electricSpark 2s infinite 1s;
+        }
+
+        /* ============================================
+           SERVICES SECTION STYLES
+           ============================================ */
+        .services-section {
+            background-color: var(--neutral-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 86, 179, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 184, 28, 0.05) 0%, transparent 20%);
+            z-index: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            z-index: 2;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 2rem auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--electric-blue);
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+
+        .service-card:hover .service-icon::after {
+            opacity: 1;
+            animation: electricSpark 1.5s infinite;
+        }
+
+        .service-content {
+            padding: 0 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .service-content h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--neutral-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-features i {
+            color: var(--success-green);
+            font-size: 0.8rem;
+        }
+
+        .service-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .service-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .service-btn.primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .service-btn.secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        .service-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .service-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform var(--transition-normal);
+        }
+
+        .service-modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--neutral-gray);
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--neutral-gray);
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .service-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            height: 120px;
+            background-color: var(--neutral-light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ============================================
+           ENQUIRY SECTION STYLES
+           ============================================ */
+        .enquiry-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquiry-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .enquiry-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 86, 179, 0.05) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+
+        .enquiry-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 184, 28, 0.05) 0%, transparent 70%);
+            transform: rotate(-30deg);
+        }
+
+        .enquiry-container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .enquiry-info {
+            padding-right: 2rem;
+        }
+
+        .enquiry-info h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .enquiry-info > p {
+            font-size: 1.1rem;
+            color: var(--neutral-gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin: 2.5rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            border-left: 4px solid transparent;
+        }
+
+        .contact-item:hover {
+            background-color: white;
+            border-left-color: var(--accent-gold);
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-content h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-content p {
+            color: var(--neutral-gray);
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--neutral-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .enquiry-form-container {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquiry-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-header h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--neutral-gray);
+            font-size: 0.95rem;
+        }
+
+        .enquiry-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neutral-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--neutral-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            background-color: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--warning-red);
+            background-color: rgba(220, 53, 69, 0.02);
+        }
+
+        .error-message {
+            color: var(--warning-red);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .service-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .service-option {
+            position: relative;
+        }
+
+        .service-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .service-option label {
+            display: block;
+            padding: 0.75rem;
+            background-color: var(--neutral-light);
+            border: 2px solid var(--neutral-gray);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        .service-option input[type="radio"]:checked + label {
+            background-color: rgba(0, 86, 179, 0.1);
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .service-option label:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .priority-selection {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .priority-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .priority-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .priority-option label {
+            display: block;
+            padding: 0.75rem;
+            background-color: var(--neutral-light);
+            border: 2px solid var(--neutral-gray);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+
+        .priority-option input[type="radio"]:checked + label {
+            font-weight: 600;
+        }
+
+        .priority-option:nth-child(1) input[type="radio"]:checked + label {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-color: var(--success-green);
+            color: var(--success-green);
+        }
+
+        .priority-option:nth-child(2) input[type="radio"]:checked + label {
+            background-color: rgba(255, 184, 28, 0.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .priority-option:nth-child(3) input[type="radio"]:checked + label {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-color: var(--warning-red);
+            color: var(--warning-red);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .form-status.success {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--success-green);
+            color: var(--success-green);
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid var(--warning-red);
+            color: var(--warning-red);
+            display: block;
+        }
+
+        /* ============================================
+           FOOTER SECTION STYLES
+           ============================================ */
+        .footer-section {
+            background-color: var(--primary-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 20% 80%, var(--electric-blue) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--accent-gold) 0%, transparent 50%);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-orange));
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon i {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-text .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .footer-logo-text .tagline {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-info-icon i {
+            color: var(--accent-gold);
+            font-size: 1rem;
+        }
+
+        .contact-info-content {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-info-content h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--primary-dark);
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-media {
+            margin-top: 1.5rem;
+        }
+
+        .social-media h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all var(--transition-normal);
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            position: relative;
+            z-index: 1;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            transform: translateY(-5px);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1200px) {
+            .animated-electricity {
+                width: 250px;
+                height: 250px;
+                right: 5%;
+                bottom: 5%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .enquiry-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .enquiry-info {
+                padding-right: 0;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .main-nav ul {
+                gap: 1.5rem;
+            }
+            
+            .emergency-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .trust-indicators {
+                justify-content: center;
+            }
+            
+            .animated-electricity {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            section {
+                padding: var(--space-lg) 0;
+            }
+            
+            .btn {
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: var(--shadow-xl);
+                padding: 5rem 2rem 2rem;
+                transition: right var(--transition-normal);
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+            }
+            
+            .emergency-badge {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal);
+            }
+            
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero-section {
+                background-attachment: scroll;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .service-cta {
+                flex-direction: column;
+            }
+            
+            .service-btn {
+                width: 100%;
+            }
+            
+            .enquiry-form-container {
+                padding: 1.5rem;
+            }
+            
+            .service-selection {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .priority-selection {
+                flex-direction: column;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-selection {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+            }
+            
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3.5rem 0;
+            }
+            
+            .services, .enquiry {
+                padding: 3.5rem 0;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .certification-badges {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER SECTION
+         ============================================ -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <span class="brand-name">PowerPro Electrical</span>
+                    <span class="tagline">Professional Electrical Solutions</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation -->
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#enquiry" class="nav-link">Get Quote</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li>
+                        <a href="tel:+15551234567" class="emergency-badge">
+                            <i class="fas fa-phone-alt"></i>
+                            Emergency: (555) 123-4567
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Overlay for mobile menu -->
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-elements" id="heroBgElements"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Professional <span class="highlight">Electrical</span> Solutions
+                    <br>
+                    For <span class="text-accent">Home & Business</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    PowerPro Electrical delivers certified, safe, and reliable electrical services 
+                    with over 15 years of industry experience. Fully licensed and insured for your peace of mind.
+                </p>
+                
+                <div class="hero-stats" id="heroStats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="1500">0</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="24">0</span>
+                        <span class="stat-label">Hour Response</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#enquiry" class="btn btn-primary">
+                        <i class="fas fa-bolt"></i> Get Free Quote
+                    </a>
+                    <a href="#services" class="btn btn-outline">
+                        <i class="fas fa-cogs"></i> Our Services
+                    </a>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="certification-badges">
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Licensed & Insured</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-award"></i>
+                            <span>Certified Electricians</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8/5 (247 Reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="animated-electricity">
+            <div class="electric-animation"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section class="services-section" id="services">
+        <div class="services-bg-pattern"></div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Electrical Services</h2>
+                <p>Comprehensive electrical solutions for residential, commercial, and industrial applications</p>
+            </div>
+            
+            <div class="services-grid" id="servicesGrid">
+                <!-- Service cards will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <!-- Service Modal -->
+        <div class="service-modal" id="serviceModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-header">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalPrice" class="highlight"></p>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDescription"></p>
+                    
+                    <h4>Service Features</h4>
+                    <ul class="service-features" id="modalFeatures"></ul>
+                    
+                    <div class="service-gallery" id="modalGallery"></div>
+                    
+                    <div class="hero-cta" style="margin-top: 2rem;">
+                        <a href="#enquiry" class="btn btn-primary" id="modalQuoteBtn">
+                            <i class="fas fa-bolt"></i> Get Quote for This Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ENQUIRY SECTION
+         ============================================ -->
+    <section class="enquiry-section" id="enquiry">
+        <div class="enquiry-bg"></div>
+        
+        <div class="container">
+            <div class="enquiry-container">
+                <!-- Left Column: Contact Info -->
+                <div class="enquiry-info fade-in-up">
+                    <h2>Get Your Free Electrical Consultation</h2>
+                    <p>
+                        Fill out the form to request a free quote or consultation. 
+                        Our certified electricians will respond within 24 hours to discuss your project requirements.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Call Us Anytime</h4>
+                                <p>+1 (555) 123-4567<br>24/7 Emergency Service Available</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Email Us</h4>
+                                <p>info@powerproelectrical.com<br>Response within 2 business hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Submit Your Request</h4>
+                                <p>Fill out our enquiry form with project details</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Free Consultation</h4>
+                                <p>We'll contact you to discuss requirements</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Get Your Quote</h4>
+                                <p>Receive detailed quote and timeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Enquiry Form -->
+                <div class="enquiry-form-container fade-in-up" style="animation-delay: 0.2s">
+                    <div class="form-header">
+                        <h3>Request a Quote</h3>
+                        <p>Fill out the form below and we'll get back to you promptly</p>
+                    </div>
+                    
+                    <form class="enquiry-form" id="enquiryForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                                <div class="error-message" id="firstNameError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                                <div class="error-message" id="lastNameError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Property Address</label>
+                            <input type="text" id="address" class="form-control" placeholder="Street, City, ZIP Code">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Service Required *</label>
+                            <div class="service-selection" id="serviceSelection">
+                                <!-- Service options will be dynamically added -->
+                            </div>
+                            <div class="error-message" id="serviceError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectDetails">Project Details *</label>
+                            <textarea id="projectDetails" class="form-control" rows="4" placeholder="Please describe your electrical project or issue..." required></textarea>
+                            <div class="error-message" id="projectDetailsError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Priority Level</label>
+                            <div class="priority-selection">
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityLow" name="priority" value="low" checked>
+                                    <label for="priorityLow">Low</label>
+                                </div>
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityMedium" name="priority" value="medium">
+                                    <label for="priorityMedium">Medium</label>
+                                </div>
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityHigh" name="priority" value="high">
+                                    <label for="priorityHigh">High</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Service Date</label>
+                            <input type="date" id="preferredDate" class="form-control" min="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget (Optional)</label>
+                            <select id="budget" class="form-control">
+                                <option value="">Select budget range</option>
+                                <option value="under500">Under $500</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="over10000">Over $10,000</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Enquiry
+                        </button>
+                        
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER SECTION
+         ============================================ -->
+    <footer class="footer-section" id="footer">
+        <div class="footer-bg"></div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="footer-logo-text">
+                            <span class="brand-name">PowerPro Electrical</span>
+                            <span class="tagline">Professional Electrical Solutions</span>
+                        </div>
+                    </div>
+                    
+                    <p class="footer-description">
+                        Providing safe, reliable, and professional electrical services since 2008. 
+                        Licensed and insured for your complete peace of mind.
+                    </p>
+                    
+                    <div class="social-media">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#hero"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a>
+                        <a href="#enquiry"><i class="fas fa-chevron-right"></i> Get Quote</a>
+                        <a href="#about"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> Blog</a>
+                        <a href="#"><i class="fas fa-chevron-right"></i> FAQ</a>
+                    </div>
+                </div>
+                
+                <!-- Column 3: Services -->
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-bolt"></i> Residential Electrical</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Commercial Electrical</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Solar Power Systems</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Electrical Repairs</a>
+                        <a href="#"><i class="fas fa-bolt"></i> EV Charger Installation</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Electrical Safety</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Emergency Services</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Smart Home Automation</a>
+                    </div>
+                </div>
+                
+                <!-- Column 4: Contact & Newsletter -->
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Our Location</h4>
+                                <p>123 Electric Avenue<br>Power City, PC 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Call Us</h4>
+                                <p>+1 (555) 123-4567<br>24/7 Emergency: (555) 987-6543</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h4>Email Us</h4>
+                                <p>info@powerproelectrical.com<br>support@powerproelectrical.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 PowerPro Electrical. All rights reserved. | Licensed & Insured Electrical Contractor
+                </div>
+                
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </footer>
+
+    <script>
+        /* ============================================
+           MAIN JAVASCRIPT FILE
+           ============================================ */
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('PowerPro Electrical WebApp initialized');
+            
+            // Initialize all components
+            initHeader();
+            initHero();
+            initServices();
+            initEnquiry();
+            initFooter();
+            initGlobalEvents();
+        });
+
+        /* ============================================
+           HEADER COMPONENT JAVASCRIPT
+           ============================================ */
+        function initHeader() {
+            const header = document.querySelector('.main-header');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const navOverlay = document.getElementById('navOverlay');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Scroll effect for header
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Update active nav link based on scroll position
+                updateActiveNavLink();
+            });
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                mobileToggle.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking overlay
+            navOverlay.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+            
+            // Smooth scrolling for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Close mobile menu if open
+                        mainNav.classList.remove('active');
+                        navOverlay.classList.remove('active');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        
+                        // Smooth scroll to section
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = targetSection.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active link
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Update active nav link based on scroll position
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // Initialize active nav link
+            updateActiveNavLink();
+        }
+
+        /* ============================================
+           HERO COMPONENT JAVASCRIPT
+           ============================================ */
+        function initHero() {
+            // Create animated circuit background elements
+            createCircuitElements();
+            
+            // Initialize counter animation
+            initCounters();
+            
+            // Add scroll animation trigger
+            const heroContent = document.querySelector('.hero-content');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroContent.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            observer.observe(heroContent);
+            
+            // Create animated circuit background elements
+            function createCircuitElements() {
+                const container = document.getElementById('heroBgElements');
+                const elementCount = 20;
+                
+                for (let i = 0; i < elementCount; i++) {
+                    // Create circuit lines
+                    const line = document.createElement('div');
+                    line.className = `circuit-line ${Math.random() > 0.5 ? 'horizontal' : 'vertical'}`;
+                    
+                    // Random position
+                    line.style.left = `${Math.random() * 100}%`;
+                    line.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random animation delay
+                    line.style.animationDelay = `${Math.random() * 5}s`;
+                    line.style.animationDuration = `${3 + Math.random() * 4}s`;
+                    
+                    container.appendChild(line);
+                    
+                    // Create electric nodes at random positions
+                    if (i % 3 === 0) {
+                        const node = document.createElement('div');
+                        node.className = 'electric-node';
+                        node.style.left = `${Math.random() * 100}%`;
+                        node.style.top = `${Math.random() * 100}%`;
+                        node.style.animationDelay = `${Math.random() * 3}s`;
+                        
+                        container.appendChild(node);
+                    }
+                }
+            }
+            
+            // Initialize animated counters
+            function initCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+            }
+        }
+
+        /* ============================================
+           SERVICES COMPONENT JAVASCRIPT
+           ============================================ */
+        function initServices() {
+            // Services data
+            const servicesData = [
+                {
+                    id: 1,
+                    icon: 'fas fa-home',
+                    title: 'Residential Electrical',
+                    description: 'Complete home electrical solutions including wiring, lighting, panel upgrades, and safety inspections.',
+                    features: [
+                        'Complete Home Rewiring',
+                        'Lighting Installation & Design',
+                        'Electrical Panel Upgrades',
+                        'Safety Inspections & Certifications',
+                        'Smart Home Automation'
+                    ],
+                    price: 'From $299',
+                    images: [
+                        'residential1.jpg',
+                        'residential2.jpg',
+                        'residential3.jpg'
+                    ]
+                },
+                {
+                    id: 2,
+                    icon: 'fas fa-industry',
+                    title: 'Commercial Electrical',
+                    description: 'Professional electrical systems for businesses, offices, retail spaces, and industrial facilities.',
+                    features: [
+                        'Office Electrical Systems',
+                        'Retail Store Lighting',
+                        'Industrial Power Solutions',
+                        'Emergency Power Systems',
+                        'Code Compliance & Inspections'
+                    ],
+                    price: 'From $899',
+                    images: [
+                        'commercial1.jpg',
+                        'commercial2.jpg',
+                        'commercial3.jpg'
+                    ]
+                },
+                {
+                    id: 3,
+                    icon: 'fas fa-solar-panel',
+                    title: 'Solar Power Systems',
+                    description: 'Design and installation of solar panel systems for residential and commercial properties.',
+                    features: [
+                        'Solar Panel Installation',
+                        'Battery Storage Systems',
+                        'Grid-Tie & Off-Grid Solutions',
+                        'Government Rebate Assistance',
+                        'System Monitoring & Maintenance'
+                    ],
+                    price: 'From $4,999',
+                    images: [
+                        'solar1.jpg',
+                        'solar2.jpg',
+                        'solar3.jpg'
+                    ]
+                },
+                {
+                    id: 4,
+                    icon: 'fas fa-tools',
+                    title: 'Electrical Repairs',
+                    description: 'Fast and reliable repair services for electrical faults, circuit breakers, and all components.',
+                    features: [
+                        '24/7 Emergency Repairs',
+                        'Circuit Breaker Issues',
+                        'Outlet & Switch Problems',
+                        'Electrical Fault Diagnosis',
+                        'Preventative Maintenance'
+                    ],
+                    price: 'From $99',
+                    images: [
+                        'repair1.jpg',
+                        'repair2.jpg',
+                        'repair3.jpg'
+                    ]
+                },
+                {
+                    id: 5,
+                    icon: 'fas fa-car-battery',
+                    title: 'EV Charger Installation',
+                    description: 'Professional installation of electric vehicle charging stations for homes and businesses.',
+                    features: [
+                        'Home EV Charger Installation',
+                        'Commercial Charging Stations',
+                        'Fast Charger Setup',
+                        'Permitting & Code Compliance',
+                        'Maintenance & Support'
+                    ],
+                    price: 'From $799',
+                    images: [
+                        'ev1.jpg',
+                        'ev2.jpg',
+                        'ev3.jpg'
+                    ]
+                },
+                {
+                    id: 6,
+                    icon: 'fas fa-shield-alt',
+                    title: 'Electrical Safety',
+                    description: 'Comprehensive electrical safety inspections, testing, and compliance certification.',
+                    features: [
+                        'Electrical Safety Inspections',
+                        'Arc Fault Detection',
+                        'Surge Protection',
+                        'Ground Fault Protection',
+                        'Compliance Certification'
+                    ],
+                    price: 'From $149',
+                    images: [
+                        'safety1.jpg',
+                        'safety2.jpg',
+                        'safety3.jpg'
+                    ]
+                }
+            ];
+
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            // Generate service cards
+            servicesData.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card fade-in-up';
+                serviceCard.style.animationDelay = `${service.id * 0.1}s`;
+                
+                serviceCard.innerHTML = `
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    
+                    <div class="service-content">
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                        
+                        <ul class="service-features">
+                            ${service.features.slice(0, 3).map(feature => 
+                                `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+                            ).join('')}
+                        </ul>
+                        
+                        <div class="service-cta">
+                            <button class="service-btn primary view-details" data-id="${service.id}">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                            <button class="service-btn secondary get-quote" data-id="${service.id}">
+                                <i class="fas fa-bolt"></i> Get Quote
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                servicesGrid.appendChild(serviceCard);
+            });
+            
+            // Add event listeners for service cards
+            setTimeout(() => {
+                const viewDetailButtons = document.querySelectorAll('.view-details');
+                const getQuoteButtons = document.querySelectorAll('.get-quote');
+                const modalClose = document.getElementById('modalClose');
+                const serviceModal = document.getElementById('serviceModal');
+                
+                // View details button click
+                viewDetailButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const serviceId = parseInt(this.getAttribute('data-id'));
+                        openServiceModal(serviceId);
+                    });
+                });
+                
+                // Get quote button click
+                getQuoteButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const serviceId = parseInt(this.getAttribute('data-id'));
+                        scrollToEnquiry(serviceId);
+                    });
+                });
+                
+                // Close modal
+                modalClose.addEventListener('click', closeServiceModal);
+                serviceModal.addEventListener('click', function(e) {
+                    if (e.target === serviceModal) {
+                        closeServiceModal();
+                    }
+                });
+                
+                // Close modal with ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
+                        closeServiceModal();
+                    }
+                });
+            }, 100);
+            
+            // Open service modal
+            function openServiceModal(serviceId) {
+                const service = servicesData.find(s => s.id === serviceId);
+                if (!service) return;
+                
+                const modal = document.getElementById('serviceModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalPrice = document.getElementById('modalPrice');
+                const modalDescription = document.getElementById('modalDescription');
+                const modalFeatures = document.getElementById('modalFeatures');
+                const modalGallery = document.getElementById('modalGallery');
+                const modalQuoteBtn = document.getElementById('modalQuoteBtn');
+                
+                // Set modal content
+                modalTitle.textContent = service.title;
+                modalPrice.textContent = service.price;
+                modalDescription.textContent = service.description;
+                
+                // Set features
+                modalFeatures.innerHTML = service.features.map(feature => 
+                    `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+                ).join('');
+                
+                // Set gallery (using placeholder images)
+                modalGallery.innerHTML = `
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="${service.title}">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="${service.title}">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="${service.title}">
+                    </div>
+                `;
+                
+                // Set quote button data attribute
+                modalQuoteBtn.setAttribute('data-service-id', serviceId);
+                modalQuoteBtn.addEventListener('click', function() {
+                    closeServiceModal();
+                    scrollToEnquiry(serviceId);
+                });
+                
+                // Show modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Close service modal
+            function closeServiceModal() {
+                const modal = document.getElementById('serviceModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Scroll to enquiry form with service pre-selected
+            function scrollToEnquiry(serviceId) {
+                const service = servicesData.find(s => s.id === serviceId);
+                if (!service) return;
+                
+                // Store selected service in localStorage for enquiry form
+                localStorage.setItem('selectedService', service.title);
+                
+                // Scroll to enquiry section
+                const enquirySection = document.getElementById('enquiry');
+                const header = document.querySelector('.main-header');
+                const headerHeight = header ? header.offsetHeight : 80;
+                
+                window.scrollTo({
+                    top: enquirySection.offsetTop - headerHeight,
+                    behavior: 'smooth'
+                });
+                
+                // Highlight the enquiry form after a delay
+                setTimeout(() => {
+                    const enquiryForm = document.querySelector('.enquiry-form');
+                    if (enquiryForm) {
+                        enquiryForm.classList.add('electric-spark');
+                        setTimeout(() => {
+                            enquiryForm.classList.remove('electric-spark');
+                        }, 1000);
+                    }
+                }, 500);
+            }
+        }
+
+        /* ============================================
+           ENQUIRY COMPONENT JAVASCRIPT
+           ============================================ */
+        function initEnquiry() {
+            // Service options
+            const serviceOptions = [
+                'Residential Electrical',
+                'Commercial Electrical', 
+                'Solar Power Systems',
+                'Electrical Repairs',
+                'EV Charger Installation',
+                'Electrical Safety',
+                'Other Service'
+            ];
+
+            // Populate service selection
+            const serviceSelection = document.getElementById('serviceSelection');
+            serviceOptions.forEach((service, index) => {
+                const optionId = `service${index}`;
+                
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'service-option';
+                optionDiv.innerHTML = `
+                    <input type="radio" id="${optionId}" name="service" value="${service}" ${index === 0 ? 'checked' : ''}>
+                    <label for="${optionId}">${service}</label>
+                `;
+                
+                serviceSelection.appendChild(optionDiv);
+            });
+
+            // Check for pre-selected service from services section
+            const selectedService = localStorage.getItem('selectedService');
+            if (selectedService && serviceOptions.includes(selectedService)) {
+                const serviceRadio = document.querySelector(`input[value="${selectedService}"]`);
+                if (serviceRadio) {
+                    serviceRadio.checked = true;
+                    localStorage.removeItem('selectedService');
+                }
+            }
+
+            // Form validation and submission
+            const enquiryForm = document.getElementById('enquiryForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            // Real-time validation
+            const formInputs = enquiryForm.querySelectorAll('input, textarea, select');
+            formInputs.forEach(input => {
+                // Input event for real-time validation
+                input.addEventListener('input', function() {
+                    validateField(this);
+                });
+
+                // Blur event for validation
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+            });
+
+            // Form submission
+            enquiryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    submitEnquiry();
+                }
+            });
+
+            // Initialize date picker min date
+            const dateInput = document.getElementById('preferredDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.min = tomorrow.toISOString().split('T')[0];
+            }
+
+            // Validate individual field
+            function validateField(field) {
+                const errorId = `${field.id}Error`;
+                const errorElement = document.getElementById(errorId);
+                
+                if (!errorElement) return true;
+
+                // Clear previous error
+                field.classList.remove('error');
+                errorElement.classList.remove('show');
+                errorElement.textContent = '';
+
+                let isValid = true;
+                let errorMessage = '';
+
+                // Check required fields
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    isValid = false;
+                    errorMessage = 'This field is required';
+                }
+
+                // Email validation
+                if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                }
+
+                // Phone validation
+                if (field.id === 'phone' && field.value.trim()) {
+                    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                    const cleanedPhone = field.value.replace(/\D/g, '');
+                    if (!phoneRegex.test(cleanedPhone) || cleanedPhone.length < 10) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                }
+
+                // Show error if invalid
+                if (!isValid) {
+                    field.classList.add('error');
+                    errorElement.textContent = errorMessage;
+                    errorElement.classList.add('show');
+                }
+
+                return isValid;
+            }
+
+            // Validate entire form
+            function validateForm() {
+                const requiredFields = enquiryForm.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            // Submit enquiry form
+            function submitEnquiry() {
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+                // Get form data
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    service: document.querySelector('input[name="service"]:checked').value,
+                    projectDetails: document.getElementById('projectDetails').value,
+                    priority: document.querySelector('input[name="priority"]:checked').value,
+                    preferredDate: document.getElementById('preferredDate').value,
+                    budget: document.getElementById('budget').value,
+                    submittedAt: new Date().toISOString()
+                };
+
+                // Simulate API call (replace with actual API endpoint)
+                setTimeout(() => {
+                    // Show success message
+                    formStatus.className = 'form-status success';
+                    formStatus.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Thank you for your enquiry!</strong>
+                        <p>We've received your request and will contact you within 24 hours. A confirmation email has been sent to ${formData.email}.</p>
+                    `;
+                    formStatus.classList.add('success');
+
+                    // Reset form
+                    enquiryForm.reset();
+
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
+
+                    // Scroll to status message
+                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Log form data (in production, send to backend)
+                    console.log('Enquiry submitted:', formData);
+
+                }, 1500); // Simulate network delay
+            }
+        }
+
+        /* ============================================
+           FOOTER COMPONENT JAVASCRIPT
+           ============================================ */
+        function initFooter() {
+            // Newsletter subscription
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    if (email) {
+                        // Simulate subscription
+                        emailInput.value = '';
+                        emailInput.placeholder = 'Subscribed! Thank you.';
+                        
+                        // Reset placeholder after 3 seconds
+                        setTimeout(() => {
+                            emailInput.placeholder = 'Your email address';
+                        }, 3000);
+                        
+                        console.log('Newsletter subscription:', email);
+                    }
+                });
+            }
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scroll for footer links
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Only handle internal links starting with #
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const header = document.querySelector('.main-header');
+                            const headerHeight = header ? header.offsetHeight : 80;
+                            
+                            window.scrollTo({
+                                top: targetElement.offsetTop - headerHeight,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        /* ============================================
+           GLOBAL EVENT HANDLERS
+           ============================================ */
+        function initGlobalEvents() {
+            // Handle external links
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a');
+                if (link && link.href && link.href.startsWith('http') && 
+                    !link.href.includes(window.location.hostname)) {
+                    // External link - add target blank
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+            });
+            
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections and cards
+            document.querySelectorAll('section, .service-card, .contact-item, .process-step').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Performance optimization - debounce scroll events
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    // Handle scroll-end events here if needed
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>
