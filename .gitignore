@@ -1,0 +1,53 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+
+# Django migrations cache
+*.mo
+*.pot
+
+# =========================
+# Static files (production)
+# =========================
+staticfiles/
+
+# =========================
+# Node / frontend (if any)
+# =========================
+node_modules/
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS files
+
+messages.txt
+
+
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Git
+# =========================
+.gitignore
