@@ -23,4 +23,9 @@ from projectUrls import (publicUrls , privateUrls)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    
 ]
+
+
+urlpatterns += publicUrls.urlpatterns
