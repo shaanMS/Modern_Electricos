@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-
+from home.views import HomeView
 
 
 urlpatterns = [
@@ -27,7 +27,7 @@ urlpatterns = [
 
   path(
         '',
-        TemplateView.as_view(template_name="index.html"),  #  ---> home page 
+        HomeView.as_view(),  #  ---> home page 
         name='home'),
 
 
