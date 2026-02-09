@@ -7,7 +7,8 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Shakti Electricals'   #  like a default dictionary 
-        context['server'] = 'Django'
+        context['tagLine'] = 'Professional Electrical Solutions'
+        context['contact'] = 'Emergency: (555) 123-4567'
         return context
 
 
