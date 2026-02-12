@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | Professional Electrical Solutions</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES AND VARIABLES
+           ============================================ */
+        :root {
+            /* Professional Color Palette - Electrical Theme */
+            --primary-blue: #0056b3;       /* Deep professional blue */
+            --primary-dark: #003d82;       /* Darker blue for contrast */
+            --accent-gold: #FFB81C;        /* Professional gold accent */
+            --accent-orange: #FF6B35;      /* Safety orange */
+            --neutral-light: #F8F9FA;      /* Light background */
+            --neutral-gray: #6C757D;       /* Medium gray */
+            --neutral-dark: #212529;       /* Dark text */
+            --electric-blue: #00B4D8;      /* Electric blue for highlights */
+            --success-green: #28A745;      /* Success/positive */
+            --warning-red: #DC3545;        /* Warning/error */
+            
+            /* Professional Fonts */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 300ms ease;
+            --transition-slow: 500ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--neutral-dark);
+            background-color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container Utility */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Section Spacing */
+        section {
+            padding: var(--space-xl) 0;
+        }
+
+        /* Button Base Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-md);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--neutral-dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: var(--neutral-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Animation Classes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 86, 179, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 86, 179, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 86, 179, 0);
+            }
+        }
+
+        @keyframes electricSpark {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .electric-spark {
+            animation: electricSpark 0.5s ease-out;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-accent {
+            color: var(--accent-gold);
+        }
+
+        .highlight {
+            color: var(--electric-blue);
+            font-weight: 600;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            border-radius: var(--radius-sm);
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ============================================
+           DYNAMIC AD SECTION STYLES (Flipkart Style)
+           ============================================ */
+        .ad-section {
+            width: 100%;
+            margin: 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-section.hidden {
+            display: none;
+        }
+
+        .ad-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .ad-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ad-slide-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .ad-slide {
+            flex: 0 0 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .ad-image-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ad-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .ad-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .ad-link:hover .ad-image {
+            transform: scale(1.02);
+        }
+
+        /* Navigation Buttons */
+        .ad-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .ad-nav-btn:hover {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ad-nav-btn.prev {
+            left: 15px;
+        }
+
+        .ad-nav-btn.next {
+            right: 15px;
+        }
+
+        .ad-nav-btn i {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+        /* Dots Navigation */
+        .ad-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .ad-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .ad-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Aspect Ratio Control */
+        .ad-aspect-ratio {
+            position: relative;
+            width: 100%;
+            padding-top: 16.67%; /* 6:1 ratio for very wide banner */
+        }
+
+        .ad-aspect-ratio-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive Aspect Ratios */
+        @media (max-width: 1191px) {
+            .ad-aspect-ratio {
+                padding-top: 20%; /* 5:1 ratio for tablets */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .ad-aspect-ratio {
+                padding-top: 25%; /* 4:1 ratio for mobile */
+            }
+            
+            .ad-nav-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .ad-nav-btn.prev {
+                left: 10px;
+            }
+            
+            .ad-nav-btn.next {
+                right: 10px;
+            }
+        }
+
+        /* ============================================
+           HEADER SECTION STYLES
+           ============================================ */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all var(--transition-normal);
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+            padding: 0.5rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '⚡';
+            font-size: 1.8rem;
+            color: white;
+            animation: electricSpark 2s infinite;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.75rem;
+            color: var(--neutral-gray);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--neutral-dark);
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            transition: width var(--transition-normal);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .emergency-badge {
+            background: linear-gradient(135deg, var(--warning-red), #ff4757);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+
+        .emergency-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .emergency-badge i {
+            animation: pulse 1.5s infinite;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* ============================================
+           HERO SECTION STYLES
+           ============================================ */
+        .hero-section {
+            background: linear-gradient(rgba(0, 30, 60, 0.85), rgba(0, 30, 60, 0.9)),
+                        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .circuit-line {
+            position: absolute;
+            background-color: rgba(0, 180, 216, 0.2);
+            border-radius: 2px;
+        }
+
+        .circuit-line.horizontal {
+            width: 100px;
+            height: 2px;
+        }
+
+        .circuit-line.vertical {
+            width: 2px;
+            height: 100px;
+        }
+
+        .electric-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--electric-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--electric-blue);
+            animation: electricSpark 2s infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content .highlight {
+            color: var(--accent-gold);
+            background: linear-gradient(135deg, var(--accent-gold), #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content .highlight::after {
+            content: '⚡';
+            position: absolute;
+            right: -35px;
+            top: -5px;
+            font-size: 2rem;
+            animation: electricSpark 1.5s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-cta .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .certification-badges {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge i {
+            color: var(--accent-gold);
+        }
+
+        .animated-electricity {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+            width: 300px;
+            height: 300px;
+            z-index: 1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .electric-animation {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+
+        .electric-animation::before,
+        .electric-animation::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px solid rgba(0, 180, 216, 0.5);
+        }
+
+        .electric-animation::before {
+            width: 80%;
+            height: 80%;
+            animation: electricSpark 2s infinite 0.5s;
+        }
+
+        .electric-animation::after {
+            width: 60%;
+            height: 60%;
+            animation: electricSpark 2s infinite 1s;
+        }
+
+        /* ============================================
+           SERVICES SECTION STYLES
+           ============================================ */
+        .services-section {
+            background-color: var(--neutral-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 86, 179, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 184, 28, 0.05) 0%, transparent 20%);
+            z-index: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+            z-index: 2;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 2rem auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--electric-blue);
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+
+        .service-card:hover .service-icon::after {
+            opacity: 1;
+            animation: electricSpark 1.5s infinite;
+        }
+
+        .service-content {
+            padding: 0 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .service-content h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--neutral-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .service-features i {
+            color: var(--success-green);
+            font-size: 0.8rem;
+        }
+
+        .service-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .service-btn {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .service-btn.primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .service-btn.secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1200px) {
+            .animated-electricity {
+                width: 250px;
+                height: 250px;
+                right: 5%;
+                bottom: 5%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .enquiry-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .enquiry-info {
+                padding-right: 0;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .main-nav ul {
+                gap: 1.5rem;
+            }
+            
+            .emergency-badge {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .trust-indicators {
+                justify-content: center;
+            }
+            
+            .animated-electricity {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            section {
+                padding: var(--space-lg) 0;
+            }
+            
+            .btn {
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 350px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: var(--shadow-xl);
+                padding: 5rem 2rem 2rem;
+                transition: right var(--transition-normal);
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+            }
+            
+            .emergency-badge {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal);
+            }
+            
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero-section {
+                background-attachment: scroll;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .service-cta {
+                flex-direction: column;
+            }
+            
+            .service-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3.5rem 0;
+            }
+            
+            .services, .enquiry {
+                padding: 3.5rem 0;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .certification-badges {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER SECTION
+         ============================================ -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <span class="brand-name">{{title}}</span>
+                    <span class="tagline">{{tagLine}}</span>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation -->
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#enquiry" class="nav-link">Get Quote</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li>
+                        <a href="tel:+{{contact}}" class="emergency-badge">
+                            <i class="fas fa-phone-alt"></i>
+                            Emergency: {{contact}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Overlay for mobile menu -->
+            <div class="nav-overlay" id="navOverlay"></div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         DYNAMIC AD SECTION (Controlled from Django)
+         ============================================ -->
+    {% if show_ad_section %}
+    <section class="ad-section" id="dynamicAdSection">
+        <div class="ad-container">
+            <div class="ad-slider" id="adSlider">
+                <div class="ad-slide-track" id="adSlideTrack">
+                    <!-- Ad slides will be dynamically inserted here from Django context -->
+                    {% for ad in ads %}
+                    <div class="ad-slide" data-index="{{ forloop.counter0 }}">
+                        <a href="{{ ad.link_url|default:'#' }}" class="ad-link" target="_blank">
+                            <div class="ad-aspect-ratio">
+                                <div class="ad-aspect-ratio-inner">
+                                    <div class="ad-image-wrapper">
+                                        <img src="{{ ad.image_url }}" alt="{{ ad.alt_text|default:'Advertisement' }}" class="ad-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="ad-nav-btn prev" id="adPrevBtn" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="ad-nav-btn next" id="adNextBtn" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Dots Navigation -->
+                <div class="ad-dots" id="adDots">
+                    {% for ad in ads %}
+                    <button class="ad-dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.counter0 }}"></button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-elements" id="heroBgElements"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Professional <span class="highlight">Electrical</span> Solutions
+                    <br>
+                    For <span class="text-accent">Home & Business</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    {{heroSubtitle}}
+                </p>
+                
+                <div class="hero-stats" id="heroStats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="{{projectCompleteCount}}">0</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="{{serviceYears}}">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#enquiry" class="btn btn-primary">
+                        <i class="fas fa-bolt"></i> Get Free Quote
+                    </a>
+                    <a href="#services" class="btn btn-outline">
+                        <i class="fas fa-cogs"></i> Our Services
+                    </a>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="certification-badges">
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Licensed & Insured</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-award"></i>
+                            <span>Certified Electricians</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>{{reviewsAndCount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="animated-electricity">
+            <div class="electric-animation"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section class="services-section" id="services">
+        <div class="services-bg-pattern"></div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Professional Electrical Services</h2>
+                <p>Comprehensive electrical solutions for residential, commercial, and industrial applications</p>
+            </div>
+            
+            <div class="services-grid" id="servicesGrid">
+                <!-- Service cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ENQUIRY SECTION
+         ============================================ -->
+    <section class="enquiry-section" id="enquiry">
+        <div class="container">
+            <div class="enquiry-container">
+                <!-- Left Column: Contact Info -->
+                <div class="enquiry-info fade-in-up">
+                    <h2>Get Your Free Electrical Consultation</h2>
+                    <p>
+                        Fill out the form to request a free quote or consultation. 
+                        Our certified electricians will respond within 24 hours to discuss your project requirements.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Call Us Anytime</h4>
+                                <p>{{contact}}<br>24/7 Emergency Service Available</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Email Us</h4>
+                                <p>{{email}}<br>Response within 2 business hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Submit Your Request</h4>
+                                <p>Fill out our enquiry form with project details</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Free Consultation</h4>
+                                <p>We'll contact you to discuss requirements</p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Get Your Quote</h4>
+                                <p>Receive detailed quote and timeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Enquiry Form -->
+                <div class="enquiry-form-container fade-in-up" style="animation-delay: 0.2s">
+                    <div class="form-header">
+                        <h3>Request a Quote</h3>
+                        <p>Fill out the form below and we'll get back to you promptly</p>
+                    </div>
+<!--                     
+                    <form class="enquiry-form" id="enquiryForm" method="POST" action="{% url 'submit_enquiry' %}" novalidate>
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="first_name" class="form-control" required>
+                                <div class="error-message" id="firstNameError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="last_name" class="form-control" required>
+                                <div class="error-message" id="lastNameError"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Property Address</label>
+                            <input type="text" id="address" name="address" class="form-control" placeholder="Street, City, ZIP Code">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Service Required *</label>
+                            <div class="service-selection" id="serviceSelection">
+                                <!-- Service options will be dynamically added -->
+                         <!--   </div>
+                            <div class="error-message" id="serviceError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectDetails">Project Details *</label>
+                            <textarea id="projectDetails" name="project_details" class="form-control" rows="4" placeholder="Please describe your electrical project or issue..." required></textarea>
+                            <div class="error-message" id="projectDetailsError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Priority Level</label>
+                            <div class="priority-selection">
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityLow" name="priority" value="low" checked>
+                                    <label for="priorityLow">Low</label>
+                                </div>
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityMedium" name="priority" value="medium">
+                                    <label for="priorityMedium">Medium</label>
+                                </div>
+                                <div class="priority-option">
+                                    <input type="radio" id="priorityHigh" name="priority" value="high">
+                                    <label for="priorityHigh">High</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Service Date</label>
+                            <input type="date" id="preferredDate" name="preferred_date" class="form-control" min="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget (Optional)</label>
+                            <select id="budget" name="budget" class="form-control">
+                                <option value="">Select budget range</option>
+                                <option value="under500">Under $500</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000-5000">$1,000 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="over10000">Over $10,000</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Enquiry
+                        </button>
+                        
+                        <div class="form-status" id="formStatus"></div>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* ============================================
+           MAIN JAVASCRIPT FILE
+           ============================================ */
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('PowerPro Electrical WebApp initialized');
+            
+            // Initialize all components
+            initHeader();
+            initHero();
+            initServices();
+            initEnquiry();
+            initGlobalEvents();
+            
+            // Initialize dynamic ad section if it exists
+            if (document.getElementById('dynamicAdSection')) {
+                initDynamicAdSection();
+            }
+        });
+
+        /* ============================================
+           DYNAMIC AD SECTION JAVASCRIPT
+           ============================================ */
+        function initDynamicAdSection() {
+            const adSection = document.getElementById('dynamicAdSection');
+            const adSlider = document.getElementById('adSlider');
+            const adSlideTrack = document.getElementById('adSlideTrack');
+            const adPrevBtn = document.getElementById('adPrevBtn');
+            const adNextBtn = document.getElementById('adNextBtn');
+            const adDots = document.getElementById('adDots');
+            
+            // Check if there are ads to show
+            const adSlides = adSlideTrack.querySelectorAll('.ad-slide');
+            if (adSlides.length === 0) {
+                adSection.classList.add('hidden');
+                return;
+            }
+            
+            let currentSlide = 0;
+            const totalSlides = adSlides.length;
+            const slideWidth = adSlider.clientWidth;
+            
+            // Set initial position
+            adSlideTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            
+            // Auto-slide configuration
+            let autoSlideInterval;
+            const autoSlideDelay = 5000; // 5 seconds
+            
+            // Start auto-sliding
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    nextSlide();
+                }, autoSlideDelay);
+            }
+            
+            // Stop auto-sliding when user interacts
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+            
+            // Restart auto-sliding after user interaction
+            function restartAutoSlide() {
+                stopAutoSlide();
+                startAutoSlide();
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+                updateDots();
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+                updateDots();
+            }
+            
+            // Update slider position
+            function updateSlider() {
+                adSlideTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+            
+            // Update dots navigation
+            function updateDots() {
+                const dots = adDots.querySelectorAll('.ad-dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+                updateDots();
+            }
+            
+            // Event listeners
+            adPrevBtn.addEventListener('click', () => {
+                prevSlide();
+                restartAutoSlide();
+            });
+            
+            adNextBtn.addEventListener('click', () => {
+                nextSlide();
+                restartAutoSlide();
+            });
+            
+            // Dot click events
+            const dots = adDots.querySelectorAll('.ad-dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    restartAutoSlide();
+                });
+            });
+            
+            // Pause auto-slide on hover
+            adSlider.addEventListener('mouseenter', stopAutoSlide);
+            adSlider.addEventListener('mouseleave', startAutoSlide);
+            
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            adSlider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoSlide();
+            });
+            
+            adSlider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                restartAutoSlide();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        prevSlide();
+                    }
+                }
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                const newSlideWidth = adSlider.clientWidth;
+                adSlideTrack.style.transform = `translateX(-${currentSlide * newSlideWidth}px)`;
+            });
+            
+            // Start auto-sliding
+            startAutoSlide();
+            
+            // Add CSS for ad section via JavaScript
+            const adStyles = document.createElement('style');
+            adStyles.textContent = `
+                .ad-section {
+                    background-color: white;
+                    margin: 0;
+                    padding: 0;
+                    position: relative;
+                    width: 100%;
+                }
+                
+                .ad-slider {
+                    position: relative;
+                    width: 100%;
+                    overflow: hidden;
+                }
+                
+                .ad-slide-track {
+                    display: flex;
+                    transition: transform 0.5s ease-in-out;
+                    will-change: transform;
+                }
+                
+                .ad-slide {
+                    flex: 0 0 100%;
+                    min-width: 100%;
+                    position: relative;
+                }
+                
+                .ad-aspect-ratio {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 16.67%; /* 6:1 ratio */
+                }
+                
+                .ad-aspect-ratio-inner {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                
+                .ad-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+                
+                .ad-link {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                
+                .ad-nav-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(255, 255, 255, 0.9);
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
+                
+                .ad-nav-btn:hover {
+                    background: white;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                }
+                
+                .ad-nav-btn.prev {
+                    left: 15px;
+                }
+                
+                .ad-nav-btn.next {
+                    right: 15px;
+                }
+                
+                .ad-dots {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    gap: 8px;
+                    z-index: 10;
+                }
+                
+                .ad-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.5);
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    padding: 0;
+                }
+                
+                .ad-dot.active {
+                    background: white;
+                    width: 24px;
+                    border-radius: 4px;
+                }
+                
+                /* Responsive styles */
+                @media (max-width: 1191px) {
+                    .ad-aspect-ratio {
+                        padding-top: 20%; /* 5:1 ratio */
+                    }
+                }
+                
+                @media (max-width: 767px) {
+                    .ad-aspect-ratio {
+                        padding-top: 25%; /* 4:1 ratio */
+                    }
+                    
+                    .ad-nav-btn {
+                        width: 35px;
+                        height: 35px;
+                    }
+                    
+                    .ad-nav-btn.prev {
+                        left: 10px;
+                    }
+                    
+                    .ad-nav-btn.next {
+                        right: 10px;
+                    }
+                }
+            `;
+            document.head.appendChild(adStyles);
+        }
+
+        /* ============================================
+           HEADER COMPONENT JAVASCRIPT
+           ============================================ */
+        function initHeader() {
+            const header = document.querySelector('.main-header');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const navOverlay = document.getElementById('navOverlay');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Scroll effect for header
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Update active nav link based on scroll position
+                updateActiveNavLink();
+            });
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                mobileToggle.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking overlay
+            navOverlay.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+            
+            // Smooth scrolling for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        // Close mobile menu if open
+                        mainNav.classList.remove('active');
+                        navOverlay.classList.remove('active');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        
+                        // Smooth scroll to section
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = targetSection.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active link
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Update active nav link based on scroll position
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            // Initialize active nav link
+            updateActiveNavLink();
+        }
+
+        /* ============================================
+           HERO COMPONENT JAVASCRIPT
+           ============================================ */
+        function initHero() {
+            // Create animated circuit background elements
+            createCircuitElements();
+            
+            // Initialize counter animation
+            initCounters();
+            
+            // Add scroll animation trigger
+            const heroContent = document.querySelector('.hero-content');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        heroContent.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            observer.observe(heroContent);
+            
+            // Create animated circuit background elements
+            function createCircuitElements() {
+                const container = document.getElementById('heroBgElements');
+                const elementCount = 20;
+                
+                for (let i = 0; i < elementCount; i++) {
+                    // Create circuit lines
+                    const line = document.createElement('div');
+                    line.className = `circuit-line ${Math.random() > 0.5 ? 'horizontal' : 'vertical'}`;
+                    
+                    // Random position
+                    line.style.left = `${Math.random() * 100}%`;
+                    line.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random animation delay
+                    line.style.animationDelay = `${Math.random() * 5}s`;
+                    line.style.animationDuration = `${3 + Math.random() * 4}s`;
+                    
+                    container.appendChild(line);
+                    
+                    // Create electric nodes at random positions
+                    if (i % 3 === 0) {
+                        const node = document.createElement('div');
+                        node.className = 'electric-node';
+                        node.style.left = `${Math.random() * 100}%`;
+                        node.style.top = `${Math.random() * 100}%`;
+                        node.style.animationDelay = `${Math.random() * 3}s`;
+                        
+                        container.appendChild(node);
+                    }
+                }
+            }
+            
+            // Initialize animated counters
+            function initCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+            }
+        }
+
+        /* ============================================
+           SERVICES COMPONENT JAVASCRIPT
+           ============================================ */
+        function initServices() {
+            // Services data - can also come from Django context
+            const servicesData = [
+                {
+                    id: 1,
+                    icon: 'fas fa-home',
+                    title: 'Residential Electrical',
+                    description: 'Complete home electrical solutions including wiring, lighting, panel upgrades, and safety inspections.',
+                    features: [
+                        'Complete Home Rewiring',
+                        'Lighting Installation & Design',
+                        'Electrical Panel Upgrades',
+                        'Safety Inspections & Certifications',
+                        'Smart Home Automation'
+                    ],
+                    price: 'From $299'
+                },
+                {
+                    id: 2,
+                    icon: 'fas fa-industry',
+                    title: 'Commercial Electrical',
+                    description: 'Professional electrical systems for businesses, offices, retail spaces, and industrial facilities.',
+                    features: [
+                        'Office Electrical Systems',
+                        'Retail Store Lighting',
+                        'Industrial Power Solutions',
+                        'Emergency Power Systems',
+                        'Code Compliance & Inspections'
+                    ],
+                    price: 'From $899'
+                },
+                {
+                    id: 3,
+                    icon: 'fas fa-solar-panel',
+                    title: 'Solar Power Systems',
+                    description: 'Design and installation of solar panel systems for residential and commercial properties.',
+                    features: [
+                        'Solar Panel Installation',
+                        'Battery Storage Systems',
+                        'Grid-Tie & Off-Grid Solutions',
+                        'Government Rebate Assistance',
+                        'System Monitoring & Maintenance'
+                    ],
+                    price: 'From $4,999'
+                },
+                {
+                    id: 4,
+                    icon: 'fas fa-tools',
+                    title: 'Electrical Repairs',
+                    description: 'Fast and reliable repair services for electrical faults, circuit breakers, and all components.',
+                    features: [
+                        '24/7 Emergency Repairs',
+                        'Circuit Breaker Issues',
+                        'Outlet & Switch Problems',
+                        'Electrical Fault Diagnosis',
+                        'Preventative Maintenance'
+                    ],
+                    price: 'From $99'
+                },
+                {
+                    id: 5,
+                    icon: 'fas fa-car-battery',
+                    title: 'EV Charger Installation',
+                    description: 'Professional installation of electric vehicle charging stations for homes and businesses.',
+                    features: [
+                        'Home EV Charger Installation',
+                        'Commercial Charging Stations',
+                        'Fast Charger Setup',
+                        'Permitting & Code Compliance',
+                        'Maintenance & Support'
+                    ],
+                    price: 'From $799'
+                },
+                {
+                    id: 6,
+                    icon: 'fas fa-shield-alt',
+                    title: 'Electrical Safety',
+                    description: 'Comprehensive electrical safety inspections, testing, and compliance certification.',
+                    features: [
+                        'Electrical Safety Inspections',
+                        'Arc Fault Detection',
+                        'Surge Protection',
+                        'Ground Fault Protection',
+                        'Compliance Certification'
+                    ],
+                    price: 'From $149'
+                }
+            ];
+
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            // Generate service cards
+            servicesData.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card fade-in-up';
+                serviceCard.style.animationDelay = `${service.id * 0.1}s`;
+                
+                serviceCard.innerHTML = `
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    
+                    <div class="service-content">
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                        
+                        <ul class="service-features">
+                            ${service.features.slice(0, 3).map(feature => 
+                                `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+                            ).join('')}
+                        </ul>
+                        
+                        <div class="service-cta">
+                            <button class="service-btn primary view-details" data-id="${service.id}">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                            <button class="service-btn secondary get-quote" data-id="${service.id}">
+                                <i class="fas fa-bolt"></i> Get Quote
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                servicesGrid.appendChild(serviceCard);
+            });
+            
+            // Add event listeners for service cards
+            setTimeout(() => {
+                const getQuoteButtons = document.querySelectorAll('.get-quote');
+                
+                // Get quote button click
+                getQuoteButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const serviceId = parseInt(this.getAttribute('data-id'));
+                        const service = servicesData.find(s => s.id === serviceId);
+                        if (service) {
+                            // Scroll to enquiry section
+                            const enquirySection = document.getElementById('enquiry');
+                            const header = document.querySelector('.main-header');
+                            const headerHeight = header ? header.offsetHeight : 80;
+                            
+                            window.scrollTo({
+                                top: enquirySection.offsetTop - headerHeight,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Pre-select the service in the form
+                            const serviceSelection = document.getElementById('serviceSelection');
+                            if (serviceSelection) {
+                                const serviceRadios = serviceSelection.querySelectorAll('input[type="radio"]');
+                                serviceRadios.forEach(radio => {
+                                    if (radio.value === service.title) {
+                                        radio.checked = true;
+                                    }
+                                });
+                            }
+                        }
+                    });
+                });
+            }, 100);
+        }
+
+        /* ============================================
+           ENQUIRY COMPONENT JAVASCRIPT
+           ============================================ */
+        function initEnquiry() {
+            // Service options
+            const serviceOptions = [
+                'Residential Electrical',
+                'Commercial Electrical', 
+                'Solar Power Systems',
+                'Electrical Repairs',
+                'EV Charger Installation',
+                'Electrical Safety',
+                'Other Service'
+            ];
+
+            // Populate service selection
+            const serviceSelection = document.getElementById('serviceSelection');
+            if (serviceSelection) {
+                serviceOptions.forEach((service, index) => {
+                    const optionId = `service${index}`;
+                    
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'service-option';
+                    optionDiv.innerHTML = `
+                        <input type="radio" id="${optionId}" name="service" value="${service}" ${index === 0 ? 'checked' : ''}>
+                        <label for="${optionId}">${service}</label>
+                    `;
+                    
+                    serviceSelection.appendChild(optionDiv);
+                });
+            }
+
+            // Form validation and submission
+            const enquiryForm = document.getElementById('enquiryForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+
+            if (enquiryForm) {
+                // Real-time validation
+                const formInputs = enquiryForm.querySelectorAll('input, textarea, select');
+                formInputs.forEach(input => {
+                    // Input event for real-time validation
+                    input.addEventListener('input', function() {
+                        validateField(this);
+                    });
+
+                    // Blur event for validation
+                    input.addEventListener('blur', function() {
+                        validateField(this);
+                    });
+                });
+
+                // Form submission
+                enquiryForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    if (validateForm()) {
+                        submitEnquiry();
+                    }
+                });
+            }
+
+            // Initialize date picker min date
+            const dateInput = document.getElementById('preferredDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.min = tomorrow.toISOString().split('T')[0];
+            }
+
+            // Validate individual field
+            function validateField(field) {
+                const errorId = `${field.id}Error`;
+                const errorElement = document.getElementById(errorId);
+                
+                if (!errorElement) return true;
+
+                // Clear previous error
+                field.classList.remove('error');
+                errorElement.classList.remove('show');
+                errorElement.textContent = '';
+
+                let isValid = true;
+                let errorMessage = '';
+
+                // Check required fields
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    isValid = false;
+                    errorMessage = 'This field is required';
+                }
+
+                // Email validation
+                if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                }
+
+                // Phone validation
+                if (field.id === 'phone' && field.value.trim()) {
+                    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                    const cleanedPhone = field.value.replace(/\D/g, '');
+                    if (!phoneRegex.test(cleanedPhone) || cleanedPhone.length < 10) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                }
+
+                // Show error if invalid
+                if (!isValid) {
+                    field.classList.add('error');
+                    errorElement.textContent = errorMessage;
+                    errorElement.classList.add('show');
+                }
+
+                return isValid;
+            }
+
+            // Validate entire form
+            function validateForm() {
+                const requiredFields = enquiryForm.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            // Submit enquiry form
+            function submitEnquiry() {
+                // Disable submit button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+                // In a real Django application, the form would submit to the Django view
+                // The JavaScript validation is just for UX
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    // Show success message
+                    formStatus.className = 'form-status success';
+                    formStatus.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Thank you for your enquiry!</strong>
+                        <p>We've received your request and will contact you within 24 hours.</p>
+                    `;
+                    formStatus.classList.add('success');
+
+                    // Reset form
+                    enquiryForm.reset();
+
+                    // Re-enable submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enquiry';
+
+                    // Scroll to status message
+                    formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                }, 1500); // Simulate network delay
+            }
+        }
+
+        /* ============================================
+           GLOBAL EVENT HANDLERS
+           ============================================ */
+        function initGlobalEvents() {
+            // Handle external links
+            document.addEventListener('click', function(e) {
+                const link = e.target.closest('a');
+                if (link && link.href && link.href.startsWith('http') && 
+                    !link.href.includes(window.location.hostname)) {
+                    // External link - add target blank
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+            });
+            
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections and cards
+            document.querySelectorAll('section, .service-card, .contact-item, .process-step').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Performance optimization - debounce scroll events
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    // Handle scroll-end events here if needed
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>

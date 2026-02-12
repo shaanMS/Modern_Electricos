@@ -424,7 +424,7 @@
             
             <div class="services-grid" id="servicesGrid">
                 {% for service in services_data %}
-                <div class="service-card fade-in-up" style="animation-delay: {{ forloop.counter0|add:".1"|floatformat:"-1" }}s">
+                <div class="service-card fade-in-up" style="animation-delay: {{ forloop.counter0|add:1|mul:0.1 }}s">
                     <div class="service-icon">
                         <i class="{{ service.icon }}"></i>
                     </div>

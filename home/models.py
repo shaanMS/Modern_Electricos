@@ -1,3 +1,3 @@
 from django.db import models
-
-# Create your models here.
+# including custom models -- we have to include to make django aware  
+from home.appInstanceData import (AppInstance)

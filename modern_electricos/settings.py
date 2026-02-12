@@ -37,7 +37,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.postgres',
+
+# =====    CUSTOM APPS =======
+
+    "home",
 ]
+
+
+
+
+APP_INSTANCE_ID = "f2833737-7b61-48db-b1fe-e3e63f92313a"   # "b6e7dc4d-9f10-4bbf-ad6c-38f0c9a541ce"
+
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -54,13 +66,14 @@ ROOT_URLCONF = "modern_electricos.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR/'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -73,10 +86,19 @@ WSGI_APPLICATION = "modern_electricos.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'modern_electricos',
+        'USER': 'postgres',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',       # ya '127.0.0.1' agar local hai
+        'PORT': '5432',            # default PostgreSQL port
+        # Optional: performance ke liye
+        'CONN_MAX_AGE': 600,       # 10 min connection pooling
+        'OPTIONS': {
+            'sslmode': 'prefer',   # agar SSL chahiye to 'require' kar dena
+        },
+}
 }
 
 
@@ -120,3 +142,21 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+TIME_ZONE = 'Asia/Kolkata'   # ya apni choice
+USE_TZ = True
+
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
