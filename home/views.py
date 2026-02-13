@@ -4,9 +4,21 @@ from .conditionalViewSynchronizer import last_modified_func
 from .appInstanceData import AppInstance
 from django.views.decorators.cache import cache_page
 from django.conf import settings
+#from ratelimit.decorators import ratelimit
+import logging
+from django.http import HttpResponseForbidden
+from django.http import JsonResponse ,HttpResponse
+import asyncio
+from django.core.signing import Signer
+from django.http import StreamingHttpResponse
+import asyncio
+
+
+logger = logging.getLogger(__name__)
 
 
 
+#@ratelimit(key='ip', rate='5/m', block=True)
 @condition(last_modified_func=last_modified_func)
 @cache_page(60 * 5)  # 5 minute cache
 def home_page(request):
@@ -51,3 +63,59 @@ def home_page(request):
     }
     
     return render(request, 'index.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def instance_page(request, franchise_uuid):
+    try:
+     franchise = AppInstance.objects.get(id=franchise_uuid, is_active=True)
+     return HttpResponse('ioioioio',franchise.company_info)
+     
+     
+     
+     
+     
+     
+    except AppInstance.DoesNotExist:
+     logger.warning(f"Unauthorized access attempt by {request.user} for {franchise_uuid}")
+    
+    
+    return HttpResponseForbidden("Access Denied")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async def async_sse(request):
+    async def event_stream():
+        for i in range(5):
+            yield f"data: {i}\n\n"
+            await asyncio.sleep(1)
+    return StreamingHttpResponse(event_stream(), content_type="text/event-stream")
+
+

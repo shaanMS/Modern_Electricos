@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 # =====    CUSTOM APPS =======
 
     "home",
+    "enquiry",
+    'csp',
 ]
 
 
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = "modern_electricos.urls"
@@ -160,3 +163,48 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+
+
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+
+
+
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_SSL_REDIRECT = False
+
+
+
+CSRF_COOKIE_SECURE = True
+
+
+
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+
+
+
+
+
+
+
+
+
+# Only allow JS from your domain
+#CSP_SCRIPT_SRC = ("'self'",)
+
+# Optional: Inline scripts allow karne ke liye (safer: use nonce)
+#CSP_STYLE_SRC = ("'self'",)  # CSS bhi control hota hai
+
+
+#CSP_SCRIPT_SRC = ("'self'", "'nonce-<random-nonce>'")
+
+
+
+# CSP_SCRIPT_SRC = (
+#     "'self'",
+#     "https://cdn.jsdelivr.net",
+#     "https://cdnjs.cloudflare.com"
+# )
