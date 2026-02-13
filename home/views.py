@@ -82,20 +82,50 @@ def home_page(request):
 
 
 def instance_page(request, franchise_uuid):
-    try:
-     franchise = AppInstance.objects.get(id=franchise_uuid, is_active=True)
-     return HttpResponse('ioioioio',franchise.company_info)
-     
-     
-     
-     
-     
-     
+    try: 
+        
+         
+     print('i m in uuid ')   
+        
+        
+     instance = AppInstance.objects.get(id=franchise_uuid)#, is_active=True)
+     #return HttpResponse(f"Franchise: {franchise.title}")
+     context = {
+        # Basic company info
+        'title \\n - Franchise Of Shakti Electricals': instance.title,
+        'tagLine': instance.tagline,           # note: camelCase as in your template
+        'contact': instance.contact,
+        'email': instance.email,
+        'heroSubtitle': instance.hero_subtitle,
+        'reviewsAndCount': instance.reviews_and_count,
+        
+        # Stats / counters
+        'projectCompleteCount': instance.project_complete_count,
+        'serviceYears': instance.service_years,
+        
+        # Control flags
+        'show_ad_section': instance.show_ad_section,
+        
+        # Arrays / JSON → pass directly (template will loop)
+        'ads': instance.ads,                    # list of dicts → expected keys: image_url, link_url, alt_text
+        'services_data': instance.services_data, # you can use this instead of hardcoded JS array later
+        
+        # Optional – if you want to show more later
+        'about_text': instance.about_text,
+        'business_hours': instance.business_hours,
+        'certifications': instance.certifications,
+        'service_areas': instance.service_areas,
+        'payment_methods': instance.payment_methods,
+        
+        # You can add more fields gradually
+    }
+    
+     return render(request, 'index.html', context)
+
+
     except AppInstance.DoesNotExist:
      logger.warning(f"Unauthorized access attempt by {request.user} for {franchise_uuid}")
-    
-    
-    return HttpResponseForbidden("Access Denied")
+     return HttpResponseForbidden("Access Denied",)
 
 
 
