@@ -195,6 +195,8 @@ class AppInstance(models.Model):
     help_text="Key-value metadata - JSONB"
 )
     
+    
+    
     statistics = JSONField(
     default=dict,
     blank=True,

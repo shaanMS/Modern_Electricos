@@ -208,3 +208,11 @@ SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 #     "https://cdn.jsdelivr.net",
 #     "https://cdnjs.cloudflare.com"
 # )
+
+
+
+
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
