@@ -89,7 +89,7 @@ from .models import Enquiry
 
 @require_POST
 @csrf_protect
-def enquiry_create_view(request):
+def enquiry_create_view(request,form_slug, project_slug):
     try:
         # ----------------------------
         # Basic Required Fields
@@ -132,8 +132,8 @@ def enquiry_create_view(request):
         if not project_details:
             errors["project_details"] = "Project details are required"
 
-        if not service_required:
-            errors["service_required"] = "Select at least one service"
+        # if not service_required:
+        #     errors["service_required"] = "Select at least one service"
 
         if errors:
             return JsonResponse(

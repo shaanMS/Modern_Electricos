@@ -527,7 +527,13 @@
                         <p>Fill out the form below and we'll get back to you promptly</p>
                     </div>
                     
-                    <form class="enquiry-form" id="enquiryForm" method="POST" novalidate>
+                    <!-- <form class="enquiry-form" id="enquiryForm" method="POST" novalidate> -->
+
+
+
+                        <form method="POST" action="{% url 'enquiry:submit' form_slug='abc-form' project_slug='website-redesign' %}"
+>
+
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="form-group">
