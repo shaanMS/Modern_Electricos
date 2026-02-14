@@ -49,8 +49,8 @@ INSTALLED_APPS = [
 
 
 
-APP_INSTANCE_ID = "f2833737-7b61-48db-b1fe-e3e63f92313a"   # "b6e7dc4d-9f10-4bbf-ad6c-38f0c9a541ce"
-
+#APP_INSTANCE_ID = "f2833737-7b61-48db-b1fe-e3e63f92313a"   # "b6e7dc4d-9f10-4bbf-ad6c-38f0c9a541ce"
+APP_INSTANCE_ID                =  "b6e7dc4d-9f10-4bbf-ad6c-38f0c9a541ce"
 
 
 MIDDLEWARE = [
@@ -178,7 +178,9 @@ SECURE_SSL_REDIRECT = False
 
 
 
-CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = False
 
 
 

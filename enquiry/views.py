@@ -83,7 +83,7 @@ from django.utils import timezone
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, transaction
-
+from home.secureInstanceTokenServices import verify_instance_token
 from .models import Enquiry
 
 
@@ -91,6 +91,20 @@ from .models import Enquiry
 @csrf_protect
 def enquiry_create_view(request,form_slug, project_slug):
     try:
+        
+        
+        token = request.COOKIES.get("app_instance")
+        print('y enquiry m hai ',token)
+        print('y csrf hai aya    ',request.COOKIES.get('csrftoken'),'     ya phir   ', request.POST["csrfmiddlewaretoken"])
+        
+        # dispatcher level par kar sakte hai ya ek service layer banado 
+        if not token:
+         return JsonResponse({"error": "Missing instance token  , Refresh the Page"}, status=403)
+     
+        instance_uuid = verify_instance_token(token)
+         
+        print(instance_uuid,'   y iska instance uuid  decrypt hua hai  ')
+        
         # ----------------------------
         # Basic Required Fields
         # ----------------------------
@@ -150,7 +164,7 @@ def enquiry_create_view(request,form_slug, project_slug):
         referer = request.META.get("HTTP_REFERER")
 
         # instance_id from secure cookie
-        instance_id = request.COOKIES.get("app_instance")
+        
 
         # ----------------------------
         # Fingerprint Hash
@@ -179,7 +193,7 @@ def enquiry_create_view(request,form_slug, project_slug):
                 user_agent=user_agent,
                 referer=referer,
                 request_hash=request_hash,
-                instance_id=instance_id,
+                instance_id=instance_uuid,
             )
 
         return JsonResponse(
@@ -201,10 +215,12 @@ def enquiry_create_view(request,form_slug, project_slug):
         )
 
     except Exception as e:
-        return JsonResponse(
-            {
-                "success": False,
-                "error": "Internal server error"
-            },
-            status=500
-        )
+        # return JsonResponse(
+        #     {
+        #         "success": False,
+        #         "error": f"Internal server error   ----   {e.with_traceback}"
+        #     },
+        #     status=500
+        # )
+        print("REAL ERROR:", str(e))
+        raise e   # temporarily    

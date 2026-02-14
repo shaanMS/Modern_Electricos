@@ -278,6 +278,8 @@
     </style>
 </head>
 <body>
+    {% load cache %}
+    {% cache 300 homepage_static %}
     <!-- ===== HEADER - Django Variables ===== -->
     <header class="main-header" id="header">
         <div class="container header-container">
@@ -453,7 +455,7 @@
             </div>
         </div>
     </section>
-
+{% endcache %}
     <!-- ===== ENQUIRY SECTION ===== -->
     <section class="enquiry-section" id="enquiry">
         <div class="container">
@@ -534,7 +536,8 @@
                         <form method="POST" action="{% url 'enquiry:submit' form_slug='abc-form' project_slug='website-redesign' %}"
 >
 
-                        {% csrf_token %}
+                        {%  csrf_token %}
+                         <!-- <input type="hidden" name="csrfmiddlewaretoken" value="...."> ye automatic hojayega is case m upar--> 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>

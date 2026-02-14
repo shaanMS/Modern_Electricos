@@ -7,6 +7,14 @@ import uuid
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.db.models import JSONField
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.postgres.indexes import GinIndex
+from .addressType import AddressField
+from django.contrib.postgres.search import (
+    SearchVector,
+    SearchQuery,
+    SearchRank
+)
 
 
 class AppInstance(models.Model):
@@ -160,6 +168,24 @@ class AppInstance(models.Model):
         help_text="Theme colors as JSONB - JSONField"
     )
     
+    
+    
+    
+#     address = AddressField(
+#     null=True,
+#     help_text="Composite address_type field"
+# )
+
+
+    place_name = models.TextField(null=True, blank=True)
+    city = models.TextField(null=True, blank=True)
+    state = models.TextField(null=True, blank=True)
+    pincode = models.TextField(null=True, blank=True)
+
+    address = models.TextField(editable=False)   # '''address editable=False because DB generated'''
+
+
+    
     # ===== 9. ARRAY FIELD - PostgreSQL Specific =====
     ads = models.JSONField(default=list, blank=True)
     services_data = models.JSONField(default=list, blank=True)
@@ -294,7 +320,8 @@ class AppInstance(models.Model):
     is_active = models.BooleanField(default=False)
 
     last_modified = models.DateTimeField(auto_now=True)
-
+  
+    search_vector = SearchVectorField(null=True)
 
     class Meta:
         db_table = 'app_instance'
@@ -336,4 +363,6 @@ class AppInstance(models.Model):
     #             'hero_subtitle': 'Licensed & insured electrical services with 24/7 emergency support.',
     #         }
     #     )
-        return instance
+    #   return instance    -- y bahut import hai y uncomment rh gaya tha 
+    
+    # - jab bhi object as string banega to __str__ magin methoda yaani call hoga jaise khali - instance = App.object.get(id=uuid) yaha instance __str__ k call karega or string yaani title hi return hoga ya fir return m id return kardo ya koi dusra methodof orm ovverride karo kyunki django m ya matttttlab ksi bhi orm m zyadatar override yaani polymorphism hai ya inhritance hai kyunki bane hue behaviours ka yaani boundry line ka customization hi hai frameworks 
