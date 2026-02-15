@@ -3,11 +3,10 @@
 **Advanced Instance-Based Multi-Tenant Django SaaS Boilerplate for Electrical Services & Franchise Networks**  
 **One codebase → Unlimited branded franchise websites** (e.g. PowerPro Lucknow, Spark Delhi, Volt Mumbai) — fully dynamic, secure, performant, and scalable.
 
-Built in Lucknow, Uttar Pradesh, India – February 2026  
+
 Current version: Prototype → MVP-ready with production cleanup pending
 
-![Modern Electricos Hero Banner](https://via.placeholder.com/1280x400/1E40AF/FFFFFF?text=Modern+Electricos+-+Multi-Tenant+Electrical+SaaS+2026)  
-*(Blue/orange electrical theme – emergency focus, professional look)*
+
 
 [![Django 5.2](https://img.shields.io/badge/Django-5.2-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
