@@ -45,7 +45,7 @@ qs = AppInstance.objects.annotate(
 
 
 query = SearchQuery("delhi electrician")
-
+print()
 qs = AppInstance.objects.annotate(
     search=SearchVector("address"),
     rank=SearchRank(F("search"), query),
