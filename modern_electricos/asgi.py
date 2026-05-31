@@ -16,3 +16,4 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "modern_electricos.settings")
 
 application = get_asgi_application()
 print()
+print()
