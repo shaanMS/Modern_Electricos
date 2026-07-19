@@ -10,4 +10,5 @@ class AddressField(models.Field):
         return value
 
     def get_prep_value(self, value):
+        print()
         return value
