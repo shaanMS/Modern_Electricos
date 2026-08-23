@@ -4,6 +4,7 @@ class AddressField(models.Field):
     description = "PostgreSQL composite address_type"
 
     def db_type(self, connection):
+        print()
         return "address_type"
 
     def from_db_value(self, value, expression, connection):
