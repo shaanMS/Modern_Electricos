@@ -8,6 +8,7 @@ class AddressField(models.Field):
         return "address_type"
 
     def from_db_value(self, value, expression, connection):
+        print()
         return value
 
     def get_prep_value(self, value):
