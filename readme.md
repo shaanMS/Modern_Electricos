@@ -1,6 +1,6 @@
 # Modern Electricos ⚡
 
-**Advanced Instance-Based Multi-Tenant Django SaaS Boilerplate for Electrical Services & Franchise Networks**  
+** Advanced Instance-Based Multi-Tenant Django SaaS Boilerplate for Electrical Services & Franchise Networks**  
 **One codebase → Unlimited branded franchise websites** (e.g. PowerPro Lucknow, Spark Delhi, Volt Mumbai) — fully dynamic, secure, performant, and scalable.
 
 
